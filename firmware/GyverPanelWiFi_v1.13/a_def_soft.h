@@ -15,15 +15,15 @@
 // ------------------------ Локальная сеть ---------------------
 
 #ifndef NETWORK_SSID
-#define NETWORK_SSID ""                   // Имя WiFi сети
+#define NETWORK_SSID "MTSRouter_0EE9"                   // Имя WiFi сети
 #endif
 
 #ifndef NETWORK_PASS
-#define NETWORK_PASS ""                   // Пароль для подключения к WiFi сети
+#define NETWORK_PASS "22547019"                   // Пароль для подключения к WiFi сети
 #endif
 
 #ifndef DEFAULT_IP
-#define DEFAULT_IP {192, 168, 0, 100}     // Сетевой адрес устройства по умолчанию
+#define DEFAULT_IP {192, 168, 1, 150}     // Сетевой адрес устройства по умолчанию
 #endif
 
 #ifndef DEFAULT_PORT
@@ -45,23 +45,23 @@
 #if (USE_MQTT == 1)
 
 #ifndef DEFAULT_MQTT_SERVER
-#define DEFAULT_MQTT_SERVER "mqtt.by"            // MQTT сервер
+#define DEFAULT_MQTT_SERVER "5fa9420a29734e8d87874b444ff602a5.s2.eu.hivemq.cloud"  //"broker.hivemq.com"//          // MQTT сервер
 #endif
 
 #ifndef DEFAULT_MQTT_USER
-#define DEFAULT_MQTT_USER   ""                   // Имя mqtt-пользователя    (!!! укажите имя пользователя для вашего соединения - зарегистрируйтесь на mqtt.by -> смотрите в личном кабинете !!!)
+#define DEFAULT_MQTT_USER   "sculptonics" //""//                  // Имя mqtt-пользователя    (!!! укажите имя пользователя для вашего соединения - зарегистрируйтесь на mqtt.by -> смотрите в личном кабинете !!!)
 #endif
 
 #ifndef DEFAULT_MQTT_PASS
-#define DEFAULT_MQTT_PASS   ""                   // Пароль mqtt-пользователя (!!! укажите пароль вашего соединения - зарегистрируйтесь на mqtt.by -> смотрите в личном кабинете !!!)
+#define DEFAULT_MQTT_PASS   "25866bsisMPxw"                   // Пароль mqtt-пользователя (!!! укажите пароль вашего соединения - зарегистрируйтесь на mqtt.by -> смотрите в личном кабинете !!!)
 #endif
 
 #ifndef DEFAULT_MQTT_PORT
-#define DEFAULT_MQTT_PORT   1883                 // Порт mqtt-соединения
+#define DEFAULT_MQTT_PORT   8884                 // Порт mqtt-соединения
 #endif
 
 #ifndef DEFAULT_MQTT_PREFIX
-#define DEFAULT_MQTT_PREFIX "af7cd12a"           // Префикс топика сообщения уникальный для вашего устройства
+#define DEFAULT_MQTT_PREFIX "Toilet_ESP-4116FB"           // Префикс топика сообщения уникальный для вашего устройства
 #endif
 
 #endif
@@ -382,8 +382,8 @@ uint16_t localPort  = DEFAULT_PORT;         // локальный порт на 
 
 #if (USE_MQTT == 1)
 
-WiFiClient m_client;                             // Объект для работы с удалёнными хостами - соединение с MQTT-сервером
-PubSubClient mqtt(m_client);                     // Объект соединения с MQTT сервером
+WiFiClientSecure m_client;                             // Объект для работы с удалёнными хостами - соединение с MQTT-сервером
+PubSubClient mqtt;                     // Объект соединения с MQTT сервером
 
 String mqtt_client_name = "";                    // Имя для регистрации клиента на сервере MQTT
 
