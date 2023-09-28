@@ -383,7 +383,7 @@ uint16_t localPort  = DEFAULT_PORT;         // локальный порт на 
 #if (USE_MQTT == 1)
 
 WiFiClientSecure m_client;                             // Объект для работы с удалёнными хостами - соединение с MQTT-сервером
-PubSubClient mqtt;                     // Объект соединения с MQTT сервером
+PubSubClient mqtt(m_client);                     // Объект соединения с MQTT сервером
 
 String mqtt_client_name = "";                    // Имя для регистрации клиента на сервере MQTT
 
